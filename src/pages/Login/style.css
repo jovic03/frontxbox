@@ -1,0 +1,97 @@
+.login-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('../../assets/img/background_boxes3.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-family: Noto Sans;
+}
+
+
+.login-card {
+  background-color: #FFF;
+  padding: 50px;
+  border-radius: 1rem;
+  width: 400px;
+  height: auto;
+  font-family: Noto Sans;
+  color: #107C10;
+}
+
+.login-card h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 0;
+  margin-bottom: 2rem;
+  font-family: Noto Sans;
+}
+
+.login-card p {
+  text-align: center;
+  padding-top: 2rem;
+  margin: 0;
+  font-family: Noto Sans;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: Noto Sans;
+}
+
+form input {
+  padding: 0.5rem;
+  outline: none;
+  border: 1px solid #107C10;
+  border-radius: 0.2rem;
+  margin-bottom: 0.8rem;
+  background-color: #107C10;
+  color: rgb(255, 255, 255);
+  font-family: Noto Sans;
+  
+}
+
+form button {
+  display: flex;
+  justify-content: center;
+  background-color: #107C10;
+  color: #FFF;
+  padding: .7rem;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: .2rem;
+  text-transform: uppercase;
+  transition: .4s all;
+  font-family: Noto Sans;
+}
+
+form button:hover {
+  background-color: #107c10ae;
+}
+
+.logo-xbox{
+  background: url('../../assets/icons/xboxLogo.png');
+  background-repeat: no-repeat;
+  
+  width: 70px;
+  height: 70px;
+
+  background-size: cover;
+
+  float: left;
+	margin: 0 50px 0 15px;
+	text-align: center;
+	align-items: center;
+}
+
+.logoLogin-container{
+  display: inline;
+  font-family: Noto Sans;
+}

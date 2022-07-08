@@ -1,117 +1,185 @@
-header {
-  /* height: 400px; */
-  position: relative;
-  display: flex;
-  align-items: flex-end;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;300;500;600;700&display=swap');
 
-  /* background-color: aquamarine; */
+
+body {
+  margin: 0px;
+  padding: 0px;
+  /* margin: 0;
+  padding: 0;
+  box-sizing: border-box; */
+  background: url('../../assets/img/Background_mainblurr2.png')no-repeat center center fixed;
+  font-family: Noto Sans, Arial, Helvetica, sans-serif;
+  background-size: cover;
+
+  color: aliceblue;
 }
 
-.header-background {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  z-index: -1;
-  -webkit-mask-image: linear-gradient(to top, transparent 25%, black 100%);
+html, body, ul, li, p{
+  /* view height - tamanho da tela */
+  margin: 0px;
+  list-style: none;
+  font-size: 1.2rem;
+  font-family: Noto Sans, Arial, Helvetica, sans-serif;
 }
 
-header section {
-  width: 100%;
+a{
+  text-decoration: none;
+  /* background: blue; */
+}
+
+.header{
+  background: rgb(133, 59, 165);
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  flex-wrap: wrap;
+  /* padding-right: 20px; */
+  padding-bottom: 20px;
+  /* align-items: center; */
+
+  height: 100px;
+
+}
+
+.menu{
+  display: flex;
+}
+
+.menu li{
+  margin-left: 10px;
+}
+
+.menu li a{
+  display: block;
+  padding: 10px;
+  /* background: green; */
+}
+
+.foto-perfil{
+  background: url('../../assets/img/ezio.jpg') no-repeat center center ;
+  
+    width: 200px;
+    height: 200px;
+
+    background-size: cover;
+    /* border-radius: 50%; */
+    /* top-left | top-right | bottom-right | bottom-left */
+    border-radius: 0px 50% 50% 50%;
+
+    position: absolute;
+
+    alt: 'Foto do perfil';
+
+
+}
+
+.nome-perfil{
+  background: yellow;
+  color: black;
+  border-radius: 5px;
+  padding-left: 220px;
+  padding-right: 20px;
+  padding-top: 10px;
+  margin-left: 10px;
+
+  position: absolute;
+  text-align: justify;
+  top: 90px;
+
+  height: 40px;
+
+  alt: 'Nome do perfil';
+
+}
+
+.flex{
+  display: flex;
   flex-wrap: wrap;
 }
 
-header section div {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 2rem 0rem 0rem 10rem;
+
+.time-hour{
+  background-color: rgb(14, 240, 116);
+  border-radius: 0px 0px 0px 5px;
+  cursor: none;
+  height: 50px;
 }
 
-.header-button {
-  /* %, vw, vh, rem, rm */
-  /* rem - é medida relativa baseada no tamanho da fonte da pagina ou browser */
-  margin: 2rem 10rem 2rem 2rem;
-  display: flex;
-  justify-content: center;
-  background-color: #FFF;
-  color: #E51b22;
-  padding: 64px;
-  font-size: 1.1rem;
+.button {
+  /* display: flex; */
+
+
+  height: 50px;
+  padding: 0;
+  background: rgb(4, 128, 186);
   border: none;
   outline: none;
+  border-radius: 0px 0px 5px 5px;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
-  font-weight: bold;
-  border-radius: .2rem;
-  transition: .4s all;
-  background: url('../../assets/icons/addGame.png') no-repeat center center;
-
-}
-
-.header-button:hover {
-  transform: scale(1.1);
-}
-
-.header-logo {
-  z-index: 9999;
-  width: 15rem;
-}
-
-header h1 {
-  padding-top: 500px;
-  color: #FFF;
-  align-content: center;
-  padding: .6rem;
-  text-transform: uppercase;
-  letter-spacing: .4rem;
-  font-weight: 400;
-  margin: 0 auto;
-  background-color:#107C10 ;
-  border-radius: 5px;
-}
-
-
-.favorite-text{
-  width: 100%;
-}
-
-.favorite-button{
-  padding-top: 5%;
-  padding-left: 50%;
-  padding-top: 500px;
-  color: #FFF;
-  align-content: center;
-  padding: .6rem;
-  text-transform: uppercase;
-  letter-spacing: .4rem;
-  font-weight: 400;
-  margin: 0 auto auto 50%;
-  background-color:#107C10 ;
-  border-radius: 5px;
-  width: min-content;
-  text-align: center;
-  padding-left: 3.5vh;
-
-}
-
-.header-logout {
-  position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
-  color: #FFF;
-  background-color: #E51b22;
-  padding: .5rem;
-  font-size: 1.5rem;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: .3s all;
   
+  vertical-align: 50%;
+
+  font-size: 1.2rem;
+  font-family: 'Noto Sans';
 }
 
-.header-logout:hover {
-  background-color: #ab1a1e;
-  transform: scale(0.9);
+.button:hover {
+  background: rgb(54, 193, 16);
+  transition: 0.5s;
 }
+
+/*clique*/
+.button:active {
+  background: #3700ff;
+}
+
+.btn-icone {
+  display: inline;
+  align-items: center;
+  padding: 0 24px;
+  color: #fff;
+  height: 100%;
+}
+
+.btn-texto{
+  /* padding-bottom: 70px; */
+  display: inline;
+  /* align-items: center; */
+  /* superior | direita | inferior | esquerda */
+  padding-right: 25px;
+  color: #fff;
+  height: 100%;
+}
+
+
+.btn-icone {
+  font-size: 1.5em;
+  background: url('../../assets/icons/iconVoltar.png')no-repeat center center;
+  background-size: cover;  
+  
+
+}
+
+.btn-addgame{
+  background: url('../../assets/icons/addGame.png') no-repeat;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+
+
+  /* topo | direita | inferior | esquerda */
+  /* margin-right: 20rem; */
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+
+
+

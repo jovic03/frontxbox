@@ -1,20 +1,28 @@
 import './style.css';
 
-import { RiLogoutCircleLine } from 'react-icons/ri';
-
 const Header = () => {
   return (
-    <header>
-      <div className='header-logout'/>
-      {/* <section> */}
-        <div className='favorite-text'>
-          <div className='favorite-button'>
-            FAVORITOS
-          </div>
-        </div>
-        <button className='header-button'></button>
-      {/* </section> */}
-    </header>
+<header className="header">
+    <section className="flex">
+        <div className="nome-perfil">Ezio Auditore</div>
+        <a className="foto-perfil" href="/" title='Foto de perfil'></a>
+    </section>
+    <nav className='flex-container'>
+        <ul className="menu">
+
+            <div className="button">
+                <li className="btn-icone"/>
+                <li className="btn-texto">VOLTAR</li>
+            </div>
+
+            <li  className="btn-addgame" />
+
+            <li className="time-hour">
+                <a> 06/07/2022 16:09</a>
+            </li>
+        </ul>
+    </nav>
+  </header>
   )
 }
 

@@ -1,11 +1,32 @@
 import './style.css';
-const Card = () => {
+
+interface cardProps {
+  jogo: {
+    id?: string;
+    title :string;
+    coverImageUrl:string;
+    description:string;
+    year:string;
+    imdbScore:string;
+    trailerYouTubeUrl:string;
+    gameplayYouTubeUrl:string;
+  
+  }
+} 
+
+
+const Card = ({ jogo }: cardProps) => {
   return (
     <div className='card'>
-      <img src="https://images.ctfassets.net/wn7ipiv9ue5v/4wEiyZ2vNVKqDME3h7WMid/67ecfdf29c63a436e312d4510cecf52e/GTAV_Gen9_CollectionsPageFOB_1212x1497_DELIV__1_.jpg" className="game-image" alt="Imagem massa do miranha" />
+      <img src={jogo.coverImageUrl} className="character-image" alt="Imagem massa do miranha" />
       <div>
-        <h2>Grand Theft Auto V</h2>
-        <span className='user-card'>By: Ivo Soares</span>
+        <h2>{jogo.title}</h2>
+        <p>{jogo.description}</p>
+        <p>{jogo.year}</p>
+        <p>{jogo.imdbScore}</p>
+        <p>{jogo.trailerYouTubeUrl}</p>
+        <p>{jogo.gameplayYouTubeUrl}</p>
+        {/* <span className='user-card'>By: {jogo.genero}</span> */}
       </div>
     </div>
   )

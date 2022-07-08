@@ -2,83 +2,59 @@ import Header from '../../components/Header/index';
 import "./style.css";
 import Card from '../../components/Card/index';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { findAllService } from '../../services/jogoService';
 
-interface Characters{
-  identity:string;
-  image:string;
-  name:string;
-  reality:string;
-  id:string;
-  userName:string;
-  avatar:string;
-  userId:string;
-  
+'../../services/characterService'
+
+interface Jogos {
+  id?: string;
+  title :string;
+  coverImageUrl:string;
+  description:string;
+  year:string;
+  imdbScore:string;
+  trailerYouTubeUrl:string;
+  gameplayYouTubeUrl:string;
 }
 
-interface User{
-  avatar:string;
-  email:string;
-  name:string;
-  _id:string;
+interface User {
+  avatar: string;
+  email: string;
+  name: string;
+  _id: string;
 }
 
 const Home = () => {
+  const [characters, setCharacters] = useState<Jogos[]>([]);
+  const navigate = useNavigate();
 
-  const [characters,setCharacters] = useState<Characters[]>([])
+  const jwt = localStorage.getItem('jwtLocalStorage')
 
-  useEffect(()=>{
+  useEffect(() => {
     getAllCharacters();
-  },[]);
+  }, []);
 
-  const getAllCharacters = async ()=>{
-    /*const chamadaApi = fetch('https://sheet2api.com/v1/M18qpSHnRQS5/characters')
-    chamadaApi.then((response) =>response.json())
-      .then(data => console.log(data))
-      .catch(err =>console.log('erro',err))*/
+  const getAllCharacters = async () => {
+    if(!jwt) {
+      console.log('ERRO: NAO EXISTE O TOKEN FAVOR LOGAR NOVAMENTE')
+      navigate('/login')
+    } else {
+      const response = await findAllService.allCharacters();
 
-      /*const chamadaApi = await fetch('https://sheet2api.com/v1/M18qpSHnRQS5/characters')
-      const data = await chamadaApi.json();
-      console.log(data);*/
-
-      /*try{
-      const result = await axios('https://sheet2api.com/v1/M18qpSHnRQS5/characters')
-      console.log(result.data)
-      } catch(err:any){
-        alert(err.message)
-      }*/
-
-      try{
-        const result = await axios.post('https://api.rawg.io/api/platforms?key=4bed99f215f345d8b04748edee691caf',
-        {   
-          identity:'Peter',
-          image:'url_image',
-          name:'Pedro',
-          reality:'Terra',
-          id:'123',
-          userName:'Jao',
-          avatar:'url_avatr',
-          userId:'id',
-        }
-        );
-        console.log(result.data);
-        } catch(err:any){
-          alert(err.message)
-        }
-
-
-
-    } 
+      console.log('Personagens exibidos', response);
+      setCharacters(response.data.results);
+    }
+  }
 
   return (
     <main>
       <Header/>
       <section className='list-cards'>
         <div className='card-container'>
-          <Card/>
-          <Card/>
-          <Card/>
-          <Card/>         
+          {characters.map((jogo: Jogos, index) => (
+            <Card jogo={jogo} key={index} />
+          ))}
         </div>
         <button className='btn-view-more'>Ver mais</button>
       </section>
