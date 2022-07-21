@@ -1,19 +1,20 @@
 import './style.css'
 import { useState } from 'react';
-import axios from 'axios';
 import { loginService } from '../../services/authService';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import swall from 'sweetalert';
 
 
 interface userLoginObj {
   email: string;
-  senha: string;
+  password: string;
 }
 
 const Login = (props: any) => {
   const [values, setValues] = useState({
     email: '',
-    senha: '',
+    password: '',
   })
 
   let navigate = useNavigate();
@@ -32,10 +33,16 @@ const Login = (props: any) => {
   const loginUser = async (event: React.SyntheticEvent) => {
     event.preventDefault();
     const response = await loginService.login(values)
+    // debugger;
     const jwt = response.data.token;
 
     if(jwt) {
       localStorage.setItem('jwtLocalStorage', jwt);
+      swall({
+        title: 'Seja bem vindo',
+        icon: 'success',
+        timer: 3000,
+      })
       navigate('/');
     }
     console.log(response.data);

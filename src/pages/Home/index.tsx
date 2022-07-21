@@ -1,11 +1,11 @@
 import Header from '../../components/Header/index';
 import "./style.css";
 import Card from '../../components/Card/index';
+import swall from 'sweetalert';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { findAllService } from '../../services/jogoService';
-
-'../../services/characterService'
+import { userLoggedService } from '../../services/authService';
 
 interface Jogos {
   id?: string;
