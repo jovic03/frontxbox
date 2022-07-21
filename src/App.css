@@ -1,0 +1,116 @@
+.login-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('./assets//banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  
+  .login-card {
+    background-color: #FFF;
+    padding: 50px;
+    border-radius: 1rem;
+    width: 400px;
+    height: auto;
+  }
+  
+  .login-card h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .login-card p {
+    text-align: center;
+    padding-top: 2rem;
+    margin: 0;
+  }
+  
+  .link-register {
+    text-decoration: none;
+    color: #E51b22;
+    font-weight: bold;
+    transition: .3s all;
+  }
+  
+  .link-register:hover {
+    color: #ab1a1e;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+  
+  form input {
+    padding: 0.5rem;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 0.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  form button {
+    display: flex;
+    justify-content: center;
+    background-color: #e51b22;
+    color: #FFF;
+    padding: .7rem;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: .2rem;
+    text-transform: uppercase;
+    transition: .4s all;
+  }
+  
+  form button:hover {
+    background-color: #ab1a1e;
+  }
+  
+  .overlay-react-modal {
+    background-color: rgba(0,0,0, 0.6);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .content-react-modal {
+    width: 100%;
+    max-width: 300px;
+    background-color: #FFF;
+    padding: 3rem;
+    position: relative;
+    border-radius: 0.3rem;
+  }
+  
+  .close-modal-button {
+    background-color: transparent;
+    color: #000;
+    font-size: 1.6rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    transition: .4s all;
+  }
+  
+  .close-modal-button:hover {
+    color: #e51b22;
+  }
