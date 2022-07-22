@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { findAllService } from '../../services/jogoService';
 import { userLoggedService } from '../../services/authService';
 
-interface Jogos {
+interface Games {
   id?: string;
   title :string;
   coverImageUrl:string;
@@ -19,31 +19,65 @@ interface Jogos {
 }
 
 interface User {
-  avatar: string;
   email: string;
   name: string;
-  _id: string;
+  id: string;
 }
 
 const Home = () => {
-  const [characters, setCharacters] = useState<Jogos[]>([]);
+  const [games, setGames] = useState<Games[]>([]);
+  const [refreshGames, setRefreshGames] = useState(false);
+  const [userLogged, setUserLogged] = useState<User>({
+    email: '',
+    name: '',
+    id: ''
+  });
+
   const navigate = useNavigate();
 
   const jwt = localStorage.getItem('jwtLocalStorage')
 
-  useEffect(() => {
-    getAllCharacters();
-  }, []);
+  const getUserLogged = async () => {
+    const response = await userLoggedService.userLogged();
+    setUserLogged(response.data)
+  }
 
-  const getAllCharacters = async () => {
+  const updateGames = (refreshChar: boolean) => { 
+    setRefreshGames(refreshChar);
+    setTimeout(() => {
+      setRefreshGames(false);
+    }, 100);
+  }
+
+  useEffect(() => {
+    getAllGames();
+    getUserLogged();
+  }, [refreshGames]);
+
+  const getAllGames = async () => {
     if(!jwt) {
-      console.log('ERRO: NAO EXISTE O TOKEN FAVOR LOGAR NOVAMENTE')
+      swall({
+        title: 'ERRO!',
+        text: 'Faça o login antes de entrar na página inicial',
+        icon: 'error',
+        timer: 7000,
+      })
       navigate('/login')
     } else {
       const response = await findAllService.allCharacters();
 
-      console.log('Personagens exibidos', response);
-      setCharacters(response.data.results);
+      if(response.status === 204) {
+        swall({
+          title: 'Info',
+          text: 'Não existe jogo cadastrado!',
+          icon: 'info',
+          timer: 7000,
+        })
+      }else {
+        console.log('Jogos exibidos', response);
+        setGames(response.data.results);
+      }
+
     }
   }
 
@@ -52,8 +86,8 @@ const Home = () => {
       <Header/>
       <section className='list-cards'>
         <div className='card-container'>
-          {characters.map((jogo: Jogos, index) => (
-            <Card jogo={jogo} key={index} />
+          {games.map((game:Games, index) => (
+            <Card jogo={game} key={index} />
           ))}
         </div>
         <button className='btn-view-more'>Ver mais</button>

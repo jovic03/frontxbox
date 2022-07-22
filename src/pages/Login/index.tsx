@@ -36,6 +36,8 @@ const Login = (props: any) => {
     // debugger;
     const jwt = response.data.token;
 
+    const userId = response.data.id;
+
     if(jwt) {
       localStorage.setItem('jwtLocalStorage', jwt);
       swall({
@@ -43,7 +45,7 @@ const Login = (props: any) => {
         icon: 'success',
         timer: 3000,
       })
-      navigate('/');
+      navigate(`/usuario/${userId}/perfil`);
     }
     console.log(response.data);
   }
@@ -60,7 +62,7 @@ const Login = (props: any) => {
           <input type="password" name="password" id="password" placeholder="Digite a sua senha" onChange={handleChangesValues}/>
           <button>Entrar</button>
         </form>
-        <p>Não tem conta ? Cadastre-se</p>
+        <p>Não tem conta ? <Link to="/register" className='link-register'>Cadastre-se</Link></p>
       </div>
     </section>
   )

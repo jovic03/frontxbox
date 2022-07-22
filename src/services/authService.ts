@@ -7,9 +7,10 @@ interface userLoginObj {
 }
 
 interface userObj {
-  email: string;
   name: string;
+  email: string;
   password: string;
+  passwordConfirmation:string,
   cpf:string
 }
 
@@ -25,14 +26,14 @@ const loginService = {
 
 const registerService = {
   registerValues: (values: userObj) => 
-    api.post('/user/create', values)
+    api.post('/usuario', values)
     .then((response: any) => response)
     .catch((error: any) => error.response)
 }
 
 const userLoggedService = {
   userLogged: () =>
-    api.get('/user/findById')
+    api.get('/usuario/findByEmail')
     .then((response:any) => response)
     .then((response: any) => response)
     .catch((error: any) => {
