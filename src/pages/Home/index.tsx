@@ -64,7 +64,7 @@ const Home = () => {
       })
       navigate('/login')
     } else {
-      const response = await findAllService.allCharacters();
+      const response = await findAllService.allJogo();
 
       if(response.status === 204) {
         swall({

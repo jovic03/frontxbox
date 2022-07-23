@@ -1,8 +1,8 @@
 import api from './api';
 
 const findAllService = {
-  allJogo: () => 
-    api.get('/jogo')
+  allUser: () => 
+    api.get('/usuario')
     .then((response: any) => {
       return response;
     })

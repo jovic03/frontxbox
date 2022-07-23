@@ -45,7 +45,7 @@ const Login = (props: any) => {
         icon: 'success',
         timer: 3000,
       })
-      navigate(`/usuario/${userId}/perfil`);
+      navigate(`/profileSelection`);
     }
     console.log(response.data);
   }
