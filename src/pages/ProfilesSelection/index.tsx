@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './style.css' ;
 import { findAllService } from '../../services/profilesService' 
+import { Link } from 'react-router-dom';
 
 export const ProfileSelection = () => {
 
@@ -18,19 +19,18 @@ export const ProfileSelection = () => {
 
   return (
     <section>
-      <div>
-        <span>INSERIR BOTAO DE VOLTAR</span>
-        <div className="links"></div>
-    </div>
+       <Link to='/login'><img src='../../src/assets/icons/btnvoltar.png' /></Link>
+
     <div className="container_flex" >
+      <div className="profile-box">
         
         {profiles.map((profile,index)=>(
-          <div className="quadrado">
+          <div className="profile__name">
             {profile.title}
-            <img src={profile.ImageURL}  alt="" />
+            <img src={profile.ImageURL}  alt="" className="profile__image"  />
           </div>
-        )
-        )}
+        ))}
+       </div> 
 
     </div>
     </section>

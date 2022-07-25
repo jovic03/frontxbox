@@ -1,19 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;300;500;600;700&display=swap');
 
+
+*{
+    font-family: 'Noto Sans',sans-serif;  
+}
+
+.profile-box{
+    text-align: center;
+    max-width: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0,0.2);
+    padding: 20px;
+}
+
+.profile__image{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    display: block;
+}
+
+.profile__name{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+
+img:hover{
+    background-color: rgb(4, 128, 186);
+    font-size: 30px;
+    border-radius: 50%;
+}
+
 .container_flex{
+    /* background: tomato; */
+
+    margin-top: 10em;
+
     flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    
-}
-
-.quadrado{
-    height: 20vh;
-    width: 20vh;
-    border: 3px solid red;
-    border-radius: 50%;
-    margin: 15px;
     
 }
