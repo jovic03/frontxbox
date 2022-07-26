@@ -1,4 +1,5 @@
 import api from './api';
+import swal from 'sweetalert';
 
 const findAllService = {
   allJogo: () => 
@@ -9,4 +10,18 @@ const findAllService = {
     .catch((error: any) => console.log(error))
 }
 
-export { findAllService }
+const createService = {
+  createJogo: (values: object) =>
+  api.post('/jogo/create', values)
+    .then((response: any) => response)
+    .catch((error: any) => {
+      swal({
+        title: "Erro!",
+        text: `${error.message}`,
+        icon: "error",
+        timer: 7000,
+      })
+    })
+}
+
+export { findAllService,createService }
