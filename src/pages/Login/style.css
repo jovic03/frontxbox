@@ -41,6 +41,7 @@ form {
   flex-direction: column;
   margin: 0;
   font-family: Noto Sans;
+  
 }
 
 form input {
@@ -53,6 +54,10 @@ form input {
   color: rgb(255, 255, 255);
   font-family: Noto Sans;
   
+}
+
+form input::placeholder {
+  color: #FFF;  
 }
 
 form button {

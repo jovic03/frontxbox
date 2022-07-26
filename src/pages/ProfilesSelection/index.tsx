@@ -22,15 +22,17 @@ export const ProfileSelection = () => {
        <Link to='/login'><img src='../../src/assets/icons/btnvoltar.png' /></Link>
 
     <div className="container_flex" >
-      <div className="profile-box">
+      
         
         {profiles.map((profile,index)=>(
-          <div className="profile__name">
-            {profile.title}
-            <img src={profile.ImageURL}  alt="" className="profile__image"  />
-          </div>
+          <div className="profile-box">
+            <div className="profile__name">
+              {profile.title}
+              <img src={profile.ImageURL}  alt="" className="profile__image"  />
+            </div>
+          </div> 
         ))}
-       </div> 
+       
 
     </div>
     </section>
