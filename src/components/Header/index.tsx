@@ -1,33 +1,64 @@
+import { useState } from "react";
 import "./style.css";
+import Modals from '../Modals';
 
-const Header = () => {
-  return (
-    <header className="header">
+interface headerProps {
+  updateJogo: (arg: boolean) => void;
+}
 
-      <section className="flex">
-        <div className="nome-perfil">Ezio Auditore</div>
-        <a className="foto-perfil" href="/" title="Foto de perfil"></a>
-      </section>
+  const Header = ({updateJogo}: headerProps) => {
 
-      <nav className="flex-container">
-        <ul className="menu">
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-          <div className="button">
-            <li className="btn-icone" />
-            <li className="btn-texto">VOLTAR</li>
-          </div>
+    const openModal = () => {
+      setIsModalOpen(true);
+    }
+  
+    const closeModal = () => {
+      setIsModalOpen(false);
+    }
+  
+    const onCreate = () => {
+      updateJogo(true);
+    }
+    return (
+      <header className="header">
 
-          <li className="btn-addgame" />
+        <section className="flex">
+          <div className="nome-perfil">Ezio Auditore</div>
+          <a className="foto-perfil" href="/" title="Foto de perfil"></a>
+        </section>
 
-          <li className="time-hour">
-            <a> 06/07/2022 16:09</a>
-          </li>
-          
-        </ul>
-      </nav>
+        <nav className="flex-container">
+          <ul className="menu">
 
-    </header>
-  );
-};
+            <div className="button">
+              <li className="btn-icone" />
+              <li className="btn-texto">VOLTAR</li>
+            </div>
 
-export default Header;
+            <li className="btn-addgame" onClick={openModal}/>
+
+            <li className="time-hour">
+              <a> 06/07/2022 16:09</a>
+            </li>
+            
+          </ul>
+        </nav>
+
+        <Modals
+          isOpen={isModalOpen}
+          closeModal={closeModal}
+          type="createCharacter"
+          title='Criar Personagem'
+          onChanges={onCreate}
+          btnName="Salvar"
+          id=""
+        />
+
+      </header>
+    );
+  };
+
+
+export default Header

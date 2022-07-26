@@ -28,7 +28,9 @@ export const ProfileSelection = () => {
           <div className="profile-box">
             <div className="profile__name">
               {profile.title}
-              <img src={profile.ImageURL}  alt="" className="profile__image"  />
+              <Link to="/">
+                <img src={profile.ImageURL}  alt="" className="profile__image" />
+                </Link>
             </div>
           </div> 
         ))}

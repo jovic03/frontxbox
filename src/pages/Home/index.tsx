@@ -7,8 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import { findAllService } from '../../services/jogoService';
 import { userLoggedService } from '../../services/authService';
 
-interface Games {
-  id?: string;
+interface Jogo {
+  id: string;
   title :string;
   coverImageUrl:string;
   description:string;
@@ -16,6 +16,7 @@ interface Games {
   imdbScore:string;
   trailerYouTubeUrl:string;
   gameplayYouTubeUrl:string;
+  profileId:string;
 }
 
 interface User {
@@ -25,8 +26,8 @@ interface User {
 }
 
 const Home = () => {
-  const [games, setGames] = useState<Games[]>([]);
-  const [refreshGames, setRefreshGames] = useState(false);
+  const [jogo, setJogo] = useState<Jogo[]>([]);
+  const [refreshJogo, setRefreshJogo] = useState(false);
   const [userLogged, setUserLogged] = useState<User>({
     email: '',
     name: '',
@@ -42,19 +43,20 @@ const Home = () => {
     setUserLogged(response.data)
   }
 
-  const updateGames = (refreshChar: boolean) => { 
-    setRefreshGames(refreshChar);
+
+  useEffect(() => {
+    getAllJogo();
+    getUserLogged();
+  }, [refreshJogo]);
+
+  const updateJogo = (refreshJogo: boolean) => { 
+    setRefreshJogo(refreshJogo);
     setTimeout(() => {
-      setRefreshGames(false);
+      setRefreshJogo(false);
     }, 100);
   }
 
-  useEffect(() => {
-    getAllGames();
-    getUserLogged();
-  }, [refreshGames]);
-
-  const getAllGames = async () => {
+  const getAllJogo = async () => {
     if(!jwt) {
       swall({
         title: 'ERRO!',
@@ -75,7 +77,7 @@ const Home = () => {
         })
       }else {
         console.log('Jogos exibidos', response);
-        setGames(response.data.results);
+        setJogo(response.data.results);
       }
 
     }
@@ -83,11 +85,11 @@ const Home = () => {
 
   return (
     <main>
-      <Header/>
+      <Header updateJogo={updateJogo}/>
       <section className='list-cards'>
         <div className='card-container'>
-          {games.map((game:Games, index) => (
-            <Card jogo={game} key={index} />
+          {jogo.map((jogo:Jogo, index) => (
+            <Card jogo={jogo} key={index} updateJogo={updateJogo} userLogged={userLogged} />
           ))}
         </div>
         <button className='btn-view-more'>Ver mais</button>
