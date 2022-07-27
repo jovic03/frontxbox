@@ -18,19 +18,18 @@ interface cardProps {
     profileId: string;
   },
   updateJogo:(arg: boolean) => void;
-  userLogged: {
-    email: string,
-    name: string,
+  profileLogged: {
     id: string,
+    title: string,
   }
 } 
 
 
-const Card = ({ jogo, userLogged, updateJogo  }: cardProps) => {
+const Card = ({ jogo, profileLogged, updateJogo  }: cardProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
-    if(userLogged.id === jogo.profileId) {
+    if(profileLogged.id === jogo.profileId) {
       setIsModalOpen(true);
     } else {
       swal({

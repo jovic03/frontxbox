@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./style.css";
 import Modals from '../Modals';
+import { RiLogoutCircleLine } from 'react-icons/ri';
+
 
 interface headerProps {
   updateJogo: (arg: boolean) => void;
@@ -31,12 +33,12 @@ interface headerProps {
 
         <nav className="flex-container">
           <ul className="menu">
-
-            <div className="button">
-              <li className="btn-icone" />
-              <li className="btn-texto">VOLTAR</li>
-            </div>
-
+            <a href="/profileSelection">
+              <div className="button" >
+                <li className="btn-icone" />
+                <li className="btn-texto">VOLTAR</li>
+              </div>
+            </a>
             <li className="btn-addgame" onClick={openModal}/>
 
             <li className="time-hour">

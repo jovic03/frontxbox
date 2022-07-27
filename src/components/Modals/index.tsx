@@ -72,7 +72,10 @@ const Modals = ({
       imdbScore: "",
       trailerYouTubeUrl: "",
       gameplayYouTubeUrl: "",
-    }) : console.log('Impedindo modal de fazer algo');
+    }):()=>{
+      
+    }
+    // :console.log('Impedindo modal de fazer algo');
 
   }, [isOpen])
 

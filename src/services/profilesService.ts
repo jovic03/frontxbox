@@ -1,4 +1,5 @@
 import api from './api';
+import swal from 'sweetalert';
 
 const findAllService = {
   allProfiles: () => 
@@ -9,4 +10,33 @@ const findAllService = {
     .catch((error: any) => console.log(error))
 }
 
-export { findAllService }
+const findProfileById = {
+  findProfileById: (id: string) =>
+    api.get(`/perfil/${id}`)
+    .then((response: any) => response)
+    .catch((error: any) => {
+      swal({
+        title: "Erro!",
+        text: `${error.message}`,
+        icon: "error",
+        timer: 7000,
+      })
+    })
+}
+
+const homepage = {
+  homepage: (id: string) =>
+    api.get(`/${id}`)
+    .then((response: any) => response)
+    .catch((error: any) => {
+      swal({
+        title: "Erro!",
+        text: `${error.message}`,
+        icon: "error",
+        timer: 7000,
+      })
+    })
+}
+
+
+export { findAllService,findProfileById,homepage }

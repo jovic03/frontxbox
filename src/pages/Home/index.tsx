@@ -5,7 +5,7 @@ import swall from 'sweetalert';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { findAllService } from '../../services/jogoService';
-import { userLoggedService } from '../../services/authService';
+import { profileLoggedService } from '../../services/authService';
 
 interface Jogo {
   id: string;
@@ -19,34 +19,32 @@ interface Jogo {
   profileId:string;
 }
 
-interface User {
-  email: string;
-  name: string;
+interface Perfil {
   id: string;
+  title: string;
 }
 
 const Home = () => {
   const [jogo, setJogo] = useState<Jogo[]>([]);
   const [refreshJogo, setRefreshJogo] = useState(false);
-  const [userLogged, setUserLogged] = useState<User>({
-    email: '',
-    name: '',
-    id: ''
+  const [profileLogged, setProfileLogged] = useState<Perfil>({
+    id: '',
+    title: '',
   });
 
   const navigate = useNavigate();
 
   const jwt = localStorage.getItem('jwtLocalStorage')
 
-  const getUserLogged = async () => {
-    const response = await userLoggedService.userLogged();
-    setUserLogged(response.data)
+  const getProfileLogged = async () => {
+    const response = await profileLoggedService.profileLogged();
+    setProfileLogged(response.data)
   }
 
 
   useEffect(() => {
     getAllJogo();
-    getUserLogged();
+    getProfileLogged();
   }, [refreshJogo]);
 
   const updateJogo = (refreshJogo: boolean) => { 
@@ -76,7 +74,7 @@ const Home = () => {
           timer: 7000,
         })
       }else {
-        console.log('Jogos exibidos', response);
+        // console.log('Jogos exibidos', response);
         setJogo(response.data.results);
       }
 
@@ -89,7 +87,11 @@ const Home = () => {
       <section className='list-cards'>
         <div className='card-container'>
           {jogo.map((jogo:Jogo, index) => (
-            <Card jogo={jogo} key={index} updateJogo={updateJogo} userLogged={userLogged} />
+            <Card jogo={jogo} 
+              key={index} 
+              updateJogo={updateJogo} 
+              profileLogged={profileLogged} 
+            />
           ))}
         </div>
         <button className='btn-view-more'>Ver mais</button>
