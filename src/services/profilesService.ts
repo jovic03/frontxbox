@@ -24,19 +24,6 @@ const findProfileById = {
     })
 }
 
-const homepage = {
-  homepage: (id: string) =>
-    api.get(`/${id}`)
-    .then((response: any) => response)
-    .catch((error: any) => {
-      swal({
-        title: "Erro!",
-        text: `${error.message}`,
-        icon: "error",
-        timer: 7000,
-      })
-    })
-}
 
 
-export { findAllService,findProfileById,homepage }
+export { findAllService,findProfileById }

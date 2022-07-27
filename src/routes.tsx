@@ -11,8 +11,8 @@ const AppRoutes = () => {
     // Route - Rota da aplicaçao onde contém a logica que verifica qual componente deve ser renderizado com o path cadastrado
     <Router>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/" element={<Home />}></Route>
         <Route path="/profileSelection" element={<ProfileSelection />}></Route>
         <Route path="/register" element={<Register />}></Route>
       </Routes>

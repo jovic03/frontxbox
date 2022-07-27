@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./style.css";
 import Modals from '../Modals';
-import { RiLogoutCircleLine } from 'react-icons/ri';
+import { DateTime } from "luxon";
+import { profileLoggedService } from "../../services/authService";
 
 
 interface headerProps {
@@ -23,11 +24,18 @@ interface headerProps {
     const onCreate = () => {
       updateJogo(true);
     }
+
+
+    const dateDescription = DateTime.now().toLocaleString({
+      ...DateTime.DATE_SHORT,
+      weekday: "long",
+    });
+
     return (
       <header className="header">
 
         <section className="flex">
-          <div className="nome-perfil">Ezio Auditore</div>
+          <div className="nome-perfil"></div>
           <a className="foto-perfil" href="/" title="Foto de perfil"></a>
         </section>
 
@@ -42,7 +50,7 @@ interface headerProps {
             <li className="btn-addgame" onClick={openModal}/>
 
             <li className="time-hour">
-              <a> 06/07/2022 16:09</a>
+              <a> {dateDescription}</a>
             </li>
             
           </ul>
@@ -52,7 +60,7 @@ interface headerProps {
           isOpen={isModalOpen}
           closeModal={closeModal}
           type="createCharacter"
-          title='Criar Personagem'
+          title='Criar Jogo'
           onChanges={onCreate}
           btnName="Salvar"
           id=""

@@ -6,6 +6,27 @@ import Modals from '../Modals';
 
 
 interface cardProps {
+  // jogo: {
+  //   id: string;
+  //   title :string;
+  //   coverImageUrl:string;
+  //   description:string;
+  //   year:string;
+  //   imdbScore:string;
+  //   trailerYouTubeUrl:string;
+  //   gameplayYouTubeUrl:string;
+  //   profileId: string;
+  // },
+  updateJogo:(arg: boolean) => void;
+  profileLogged: {
+    id: string,
+    title: string,
+  },
+  id:string;
+  title:string;
+  ImageURL:string;
+  userId:string;
+  jogoFavorito:string[];
   jogo: {
     id: string;
     title :string;
@@ -16,11 +37,6 @@ interface cardProps {
     trailerYouTubeUrl:string;
     gameplayYouTubeUrl:string;
     profileId: string;
-  },
-  updateJogo:(arg: boolean) => void;
-  profileLogged: {
-    id: string,
-    title: string,
   }
 } 
 

@@ -28,7 +28,7 @@ a{
 }
 
 .header{
-  background: rgb(133, 59, 165);
+  /* background: rgba(0, 0, 0, 0.472); */
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -81,6 +81,8 @@ a{
   padding-top: 10px;
   margin-left: 10px;
 
+  width: 150px;
+
   position: absolute;
   text-align: justify;
   top: 90px;
@@ -100,7 +102,7 @@ a{
 .time-hour{
   background-color: rgb(14, 240, 116);
   border-radius: 0px 0px 0px 5px;
-  cursor: none;
+  /* cursor: none; */
   height: 50px;
 }
 
@@ -120,6 +122,8 @@ a{
   cursor: pointer;
   
   vertical-align: 50%;
+
+  margin-right: 5em;
 
   font-size: 1.2rem;
   font-family: 'Noto Sans';
@@ -170,7 +174,7 @@ a{
 
 
   /* topo | direita | inferior | esquerda */
-  /* margin-right: 20rem; */
+  margin-right: 5em;
 }
 
 nav{
