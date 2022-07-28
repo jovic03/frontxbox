@@ -55,21 +55,17 @@ a{
 }
 
 .foto-perfil{
-  background: url('../../assets/img/ezio.jpg') no-repeat center center ;
+  /* background: url('../../assets/img/ezio.jpg') no-repeat center center ; */
   
     width: 200px;
     height: 200px;
 
-    background-size: cover;
+    background-size: cover !important;
     /* border-radius: 50%; */
     /* top-left | top-right | bottom-right | bottom-left */
     border-radius: 0px 50% 50% 50%;
 
     position: absolute;
-
-    alt: 'Foto do perfil';
-
-
 }
 
 .nome-perfil{

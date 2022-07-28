@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import './style.css' ;
 import { findAllService,findProfileById } from '../../services/profilesService' 
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const ProfileSelection = () => {
 
   const [profiles,setProfiles]= useState<any[]>([]);
+  const navigate = useNavigate();
 
   useEffect(()=>{
     getAllProfiles();
@@ -20,8 +22,9 @@ export const ProfileSelection = () => {
   const getProfileData = async (id:string)=>{
     const response = await findProfileById.findProfileById(id);
     // setProfiles(response.data)//chamando a funcao que recebe os dados
-    return console.log(response,'PROFILE AQUI')
+    return navigate('/',{state:{id:id}}) 
   }
+
 
   return (
     <section>
@@ -34,10 +37,8 @@ export const ProfileSelection = () => {
           <div className="profile-box" key={index}>
             <div className="profile__name" key={index}>
               {profile.title}
-              <Link to="/">
                 <img src={profile.ImageURL} key={index}  alt="" className="profile__image" 
                 onClick={()=>getProfileData (`${profile.id}`)} />
-              </Link>
             </div>
           </div> 
         ))}

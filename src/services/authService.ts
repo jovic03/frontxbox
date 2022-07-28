@@ -46,19 +46,19 @@ const userLoggedService = {
     })
 }
 
-const profileLoggedService = {
-  profileLogged: () =>
-    api.get('/perfil/findOne')
-    .then((response:any) => response)
-    .then((response: any) => response)
-    .catch((error: any) => {
-      swal({
-        title: 'Erro!',
-        text: `${error.message}`,
-        icon: 'error',
-        timer: 7000
-      })
-    })
-}
+// const profileLoggedService = {
+//   profileLogged: () =>
+//     api.get('/perfil/findOne')
+//     .then((response:any) => response)
+//     .then((response: any) => response)
+//     .catch((error: any) => {
+//       swal({
+//         title: 'Erro!',
+//         text: `${error.message}`,
+//         icon: 'error',
+//         timer: 7000
+//       })
+//     })
+// }
 
-export { loginService, registerService, userLoggedService,profileLoggedService };
+export { loginService, registerService, userLoggedService };

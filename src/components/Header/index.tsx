@@ -2,14 +2,15 @@ import { useState } from "react";
 import "./style.css";
 import Modals from '../Modals';
 import { DateTime } from "luxon";
-import { profileLoggedService } from "../../services/authService";
 
 
 interface headerProps {
   updateJogo: (arg: boolean) => void;
+
+  profileLogged: any;
 }
 
-  const Header = ({updateJogo}: headerProps) => {
+  const Header = ({updateJogo, profileLogged}: headerProps) => {
 
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -35,8 +36,8 @@ interface headerProps {
       <header className="header">
 
         <section className="flex">
-          <div className="nome-perfil"></div>
-          <a className="foto-perfil" href="/" title="Foto de perfil"></a>
+          <div className="nome-perfil">{profileLogged.title}</div>
+          <a className="foto-perfil" href="/" title="Foto de perfil" style={{ background: `url(${profileLogged.ImageURL}) no-repeat center center`}}  ></a>
         </section>
 
         <nav className="flex-container">

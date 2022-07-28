@@ -1,37 +1,47 @@
 .card {
-  /* width: auto; */
-    width: 210px;
-    box-shadow: rgba(0, 0, 0, 0.500) 0px 3px 8px;
-    border-radius: .5rem;
-    margin-bottom: 3rem;
-    cursor: pointer;
-    transition: .4s all;
+  width: 350px;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+  border-radius: .5rem;
+  margin-bottom: 3rem;
+  cursor: pointer;
+  transition: .4s all;
+}
 
-    padding-left: .6rem;
-    padding-top: .7rem;
-  }
-  
-  .card:hover {
-    box-shadow: rgba(131, 15, 15, 0.8) 0px 3px 12px;
-  }
-  
-  .card img.game-image {
-    width: 200px;
-    height: 300px;
-    /* object-fit: cover;
-    object-position: top;
-    border-radius: .5rem .5rem 0 0; */
-  }
-  
-  /* .card div {
-    padding: 2rem;
-  } */
-  
-  .card div h2 {
-    font-size: 1.8rem;
-    margin-top: 0;
-  }
-  
-  .card span.user-card {
-    color: rgb(182, 27, 148);
-  }
+.card:hover {
+  box-shadow: rgba(131, 15, 15, 0.8) 0px 3px 12px;
+}
+
+.card img.character-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: .5rem .5rem 0 0;
+  background: no-repeat center center;
+}
+
+.card div {
+  padding: 2rem;
+}
+
+.card div h2 p{
+  font-size: 1.8rem;
+  margin-top: 0;
+}
+
+.card span.user-card {
+  color: #ccc;
+}
+
+p{
+  text-align: center;  
+}
+
+.video-links p{
+ font-size: small;
+ justify-content: left;
+ padding: 0px;
+ margin: 0;
+}
+

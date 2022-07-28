@@ -36,10 +36,11 @@ const Login = (props: any) => {
     // debugger;
     const jwt = response.data.token;
 
-    const userId = response.data.id;
+    const userId = response.data.user.id;
 
     if(jwt) {
       localStorage.setItem('jwtLocalStorage', jwt);
+      localStorage.setItem('idUser',userId)
       swall({
         title: 'Seja bem vindo',
         icon: 'success',

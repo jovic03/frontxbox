@@ -6,23 +6,23 @@ import Modals from '../Modals';
 
 
 interface cardProps {
-  // jogo: {
-  //   id: string;
-  //   title :string;
-  //   coverImageUrl:string;
-  //   description:string;
-  //   year:string;
-  //   imdbScore:string;
-  //   trailerYouTubeUrl:string;
-  //   gameplayYouTubeUrl:string;
-  //   profileId: string;
-  // },
+  jogo: {
+    id: string;
+    title :string;
+    coverImageUrl:string;
+    description:string;
+    year:string;
+    imdbScore:string;
+    trailerYouTubeUrl:string;
+    gameplayYouTubeUrl:string;
+    profileId: string;
+  },
   updateJogo:(arg: boolean) => void;
   profileLogged: {
     id: string,
     title: string,
   },
-  id:string;
+  /*id:string;
   title:string;
   ImageURL:string;
   userId:string;
@@ -37,7 +37,7 @@ interface cardProps {
     trailerYouTubeUrl:string;
     gameplayYouTubeUrl:string;
     profileId: string;
-  }
+  }*/
 } 
 
 
@@ -70,15 +70,16 @@ const Card = ({ jogo, profileLogged, updateJogo  }: cardProps) => {
   return (
     <>
       <div className='card' onClick={openModal}>
-        <img src={jogo.coverImageUrl} className="character-image" alt="Imagem do jogo" />
+        <img src={jogo.coverImageUrl} className="character-image" alt="Imagem do jogo"/>
         <div>
           <h2>{jogo.title}</h2>
           <p>{jogo.description}</p>
           <p>{jogo.year}</p>
           <p>{jogo.imdbScore}</p>
-          <p>{jogo.trailerYouTubeUrl}</p>
-          <p>{jogo.gameplayYouTubeUrl}</p>
-          <span className='user-card'>By: {jogo.profileId}</span>
+          <div className='video-links'>
+            <p>{jogo.trailerYouTubeUrl}</p>
+            <p>{jogo.gameplayYouTubeUrl}</p>
+          </div>
         </div>
       </div>
 
